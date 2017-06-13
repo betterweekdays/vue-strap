@@ -9,7 +9,7 @@
     <slot></slot>
   </div>
   <!-- Controls -->
-  <div v-show="controls" class="carousel-controls hidden-xs">
+  <div v-show="controls" class="carousel-controls">
     <a class="left carousel-control" role="button" @click="prev">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
