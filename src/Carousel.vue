@@ -11,10 +11,10 @@
   <!-- Controls -->
   <div v-show="controls" class="carousel-controls hidden-xs">
     <a class="left carousel-control" role="button" @click="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
     <a class="right carousel-control" role="button" @click="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
     </a>
   </div>
 </div>
@@ -77,11 +77,13 @@ export default {
       if (!this.$el || this.isAnimating) { return false }
       this.isAnimating = true
       this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0
+      this.$emit('nextSlide')
     },
     prev () {
       if (!this.$el || this.isAnimating) { return false }
       this.isAnimating = true
       this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1
+      this.$emit('prevSlide')
     },
     toggleInterval (val) {
       if (val === undefined) { val = this._intervalID }
